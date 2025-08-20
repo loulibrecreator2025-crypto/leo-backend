@@ -2,8 +2,7 @@ services:
   - type: web
     name: leo-backend
     env: python
-    rootDir: leo-backend
-    buildCommand: "cd .. && pip install -r leo-backend/requirements.txt && python -m spacy download fr_core_news_sm"
+    buildCommand: "pip install -r requirements.txt && python -m spacy download fr_core_news_sm"
     startCommand: "gunicorn --bind 0.0.0.0:$PORT src.main:app"
     envVars:
       - key: FLASK_ENV

@@ -11,4 +11,3 @@ services:
       - key: DATABASE_URL
         value: sqlite:///instance/app.db
     healthCheckPath: /api/health
-# rebuild trigger

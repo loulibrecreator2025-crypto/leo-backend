@@ -1,5 +1,6 @@
 flask
 flask-cors
 flask-jwt-extended
+flask_sqlalchemy
 spacy
 gunicorn

@@ -4,3 +4,4 @@ flask-jwt-extended
 flask_sqlalchemy
 spacy
 gunicorn
+transformers

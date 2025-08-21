@@ -2,7 +2,6 @@ services:
   - type: web
     name: leo-backend
     env: python
-    rootDir: .
     buildCommand: "pip install -r requirements.txt && python -m spacy download fr_core_news_sm"
     startCommand: "gunicorn --bind 0.0.0.0:$PORT src.main:app"
     envVars:

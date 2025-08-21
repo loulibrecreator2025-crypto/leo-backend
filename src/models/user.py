@@ -1,8 +1,6 @@
-from flask_sqlalchemy import SQLAlchemy
-from werkzeug.security import generate_password_hash, check_password_hash
 from datetime import datetime
-
-db = SQLAlchemy()
+from werkzeug.security import generate_password_hash, check_password_hash
+from src.models import db  # On importe db depuis __init__.py
 
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -16,12 +14,9 @@ class User(db.Model):
 
     def set_password(self, password):
         self.password_hash = generate_password_hash(password)
-    
+
     def check_password(self, password):
         return check_password_hash(self.password_hash, password)
-
-    def __repr__(self):
-        return f'<User {self.username}>'
 
     def to_dict(self):
         return {
@@ -33,3 +28,6 @@ class User(db.Model):
             'created_at': self.created_at.isoformat() if self.created_at else None,
             'updated_at': self.updated_at.isoformat() if self.updated_at else None
         }
+
+    def __repr__(self):
+        return f'<User {self.username}>'
